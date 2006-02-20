@@ -29,6 +29,8 @@ Summary:	Header files for 3store library
 Summary(pl):	Pliki nag³ówkowe biblioteki 3store
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+# for -lfl
+Requires:	flex
 Requires:	glib-devel
 Requires:	libraptor-devel >= 0.9.10
 Requires:	mysql-devel
