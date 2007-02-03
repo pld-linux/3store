@@ -2,15 +2,19 @@ Summary:	3store RDF engine
 Summary(pl):	Silnik RDF 3store
 Name:		3store
 Version:	2.2.22
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/threestore/%{name}-%{version}.tar.gz
 # Source0-md5:	6fa70d2830c82eb030d8888f4da0c86c
+Patch0:		%{name}-ac.patch
 URL:		http://threestore.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	glib-devel
 BuildRequires:	libraptor-devel >= 0.9.10
+BuildRequires:	libtool
 BuildRequires:	mysql-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -55,8 +59,14 @@ Statyczna biblioteka 3store.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 %{__make}
 
