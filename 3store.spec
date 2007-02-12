@@ -1,5 +1,5 @@
 Summary:	3store RDF engine
-Summary(pl.UTF-8):   Silnik RDF 3store
+Summary(pl.UTF-8):	Silnik RDF 3store
 Name:		3store
 Version:	2.2.22
 Release:	2
@@ -30,7 +30,7 @@ Consortium <http://www.aktors.org/>.
 
 %package devel
 Summary:	Header files for 3store library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki 3store
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki 3store
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 # for -lfl
@@ -47,7 +47,7 @@ Pliki nagłówkowe biblioteki 3store.
 
 %package static
 Summary:	Static 3store library
-Summary(pl.UTF-8):   Statyczna biblioteka 3store
+Summary(pl.UTF-8):	Statyczna biblioteka 3store
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
