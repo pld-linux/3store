@@ -1,5 +1,5 @@
 Summary:	3store RDF engine
-Summary(pl):	Silnik RDF 3store
+Summary(pl.UTF-8):   Silnik RDF 3store
 Name:		3store
 Version:	2.2.22
 Release:	2
@@ -23,14 +23,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 GNU General Public Licence and funded by the AKT Consortium
 <http://www.aktors.org/>.
 
-%description -l pl
-3store to wysoce skalowalne triplestore RDF, udostêpnione na
+%description -l pl.UTF-8
+3store to wysoce skalowalne triplestore RDF, udostÄ™pnione na
 Powszechnej Licencji Publicznej GNU (GPL), sponsorowane przez AKT
 Consortium <http://www.aktors.org/>.
 
 %package devel
 Summary:	Header files for 3store library
-Summary(pl):	Pliki nag³ówkowe biblioteki 3store
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki 3store
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 # for -lfl
@@ -42,19 +42,19 @@ Requires:	mysql-devel
 %description devel
 Header files for 3store library.
 
-%description devel -l pl
-Pliki nag³ówkowe biblioteki 3store.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki 3store.
 
 %package static
 Summary:	Static 3store library
-Summary(pl):	Statyczna biblioteka 3store
+Summary(pl.UTF-8):   Statyczna biblioteka 3store
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static 3store library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka 3store.
 
 %prep
