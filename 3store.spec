@@ -16,6 +16,7 @@ BuildRequires:	glib-devel
 BuildRequires:	libraptor-devel >= 0.9.10
 BuildRequires:	libtool
 BuildRequires:	mysql-devel
+BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
