@@ -88,7 +88,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_bindir}/tstore_*
 %attr(755,root,root) %{_libdir}/librdfsql.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/librdfsql.so.0
 %attr(755,root,root) %{_libdir}/libokbc.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libokbc.so.0
 %{_datadir}/3store
 
 %files devel
