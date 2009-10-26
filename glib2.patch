@@ -1,0 +1,24 @@
+--- 3store-2.2.22/configure.in.orig	2009-10-26 14:54:36.757604429 +0100
++++ 3store-2.2.22/configure.in	2009-10-26 15:02:47.223895797 +0100
+@@ -45,10 +45,7 @@
+ if test "$MYSQL_CONFIG" = false; then
+   AC_MSG_ERROR([Can't find mysql_config - are MySQL and the development tools installed?])
+ fi
+-AC_PATH_PROG([GLIB_CONFIG], [glib-config], [false], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
+-if test "$GLIB_CONFIG" = false; then
+-  AC_MSG_ERROR([Can't find glib-config - You need to install libglib (and appropriate -devel package if using packages)])
+-fi
++PKG_CHECK_MODULES(GLIB, glib-2.0)
+ AC_PATH_PROG([RAPTOR_CONFIG], [raptor-config], [false], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
+ if test "$RAPTOR_CONFIG" = false; then
+   AC_MSG_ERROR([Can't find raptor-config - You need to install libraptor 0.9.10+ from http://www.redland.opensource.ac.uk/raptor/])
+@@ -72,9 +69,6 @@
+ AC_C_INLINE
+ AC_C_BIGENDIAN
+ 
+-GLIB_LIBS=`$GLIB_CONFIG --libs`
+-GLIB_CFLAGS=`$GLIB_CONFIG --cflags`
+-
+ MYSQL_LIBS=`$MYSQL_CONFIG --libs`
+ MYSQL_CFLAGS=`$MYSQL_CONFIG --cflags`
+ 

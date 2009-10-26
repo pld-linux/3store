@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	glib2		# use glib2 (default glib)
+#
 Summary:	3store RDF engine
 Summary(pl.UTF-8):	Silnik RDF 3store
 Name:		3store
@@ -8,11 +12,13 @@ Group:		Libraries
 Source0:	http://dl.sourceforge.net/threestore/%{name}-%{version}.tar.gz
 # Source0-md5:	6fa70d2830c82eb030d8888f4da0c86c
 Patch0:		%{name}-ac.patch
+Patch1:		glib2.patch
 URL:		http://threestore.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	glib-devel
+%{!?with_glib2:BuildRequires:	glib-devel}
+%{?with_glib2:BuildRequires:	glib2-devel}
 BuildRequires:	libraptor-devel >= 0.9.10
 BuildRequires:	libtool
 BuildRequires:	mysql-devel
@@ -61,6 +67,7 @@ Statyczna biblioteka 3store.
 %prep
 %setup -q
 %patch0 -p1
+%{?with_glib2:%patch1 -p1}
 
 %build
 %{__libtoolize}
