@@ -42,7 +42,8 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 # for -lfl
 Requires:	flex
-Requires:	glib-devel
+%{!?with_glib2:Requires:	glib-devel}
+%{?with_glib2:Requires:	glib2-devel}
 Requires:	libraptor-devel >= 0.9.10
 Requires:	mysql-devel
 
