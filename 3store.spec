@@ -22,6 +22,7 @@ BuildRequires:	flex
 BuildRequires:	libraptor-devel >= 0.9.10
 BuildRequires:	libtool
 BuildRequires:	mysql-devel
+%{?with_glib2:BuildRequires:	pkgconfig}
 BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
