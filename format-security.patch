@@ -1,0 +1,22 @@
+--- 3store-2.2.22/src/rdfsql/rdql.c~	2005-07-18 19:54:59.000000000 +0200
++++ 3store-2.2.22/src/rdfsql/rdql.c	2016-10-18 19:01:52.998317482 +0200
+@@ -535,7 +535,7 @@
+ 	res->error_str = g_strdup_printf("SQL error in '%s' %d: %s\n",
+ 					 sql_query, mysql_errno(this->db),
+ 					 mysql_error(this->db));
+-	fprintf(stderr, res->error_str);
++	fprintf(stderr, "%s", res->error_str);
+ 	fprintf(stderr, "Query: %s\n", sql_query);
+ 
+ 	return res;
+--- 3store-2.2.22/src/tools/tstore_setup.c~	2005-07-18 16:01:15.000000000 +0200
++++ 3store-2.2.22/src/tools/tstore_setup.c	2016-10-18 19:02:50.583911067 +0200
+@@ -254,7 +254,7 @@
+ 		}
+ 	    }
+ 	    LOG(1, "SQL: ");
+-	    LOG(1, tmp);
++	    LOG(1, "%s", tmp);
+ 	    LOG(1, "\n");
+ 	    if (mysql_query(mdb, tmp)) {
+ 		if (mysql_errno(mdb) == ER_TABLE_EXISTS_ERROR) {
