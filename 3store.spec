@@ -1,15 +1,15 @@
 #
 # Conditional build:
-%bcond_with	glib2		# use glib2 (default glib)
+%bcond_with	glib2		# use glib2 (default is glib 1.x)
 #
 Summary:	3store RDF engine
 Summary(pl.UTF-8):	Silnik RDF 3store
 Name:		3store
 Version:	2.2.22
-Release:	14
+Release:	15
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/threestore/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/threestore/%{name}-%{version}.tar.gz
 # Source0-md5:	6fa70d2830c82eb030d8888f4da0c86c
 Patch0:		%{name}-ac.patch
 Patch1:		glib2.patch
@@ -88,6 +88,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# librdfsql.la obsoleted by 3store.pc file
+# libokbc.la is internal library (no header exported)
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/lib{okbc,rdfsql}.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -109,8 +113,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/3store-config
 %attr(755,root,root) %{_libdir}/librdfsql.so
 %attr(755,root,root) %{_libdir}/libokbc.so
-%{_libdir}/librdfsql.la
-%{_libdir}/libokbc.la
 %{_includedir}/rdfsql
 %{_pkgconfigdir}/3store.pc
 
